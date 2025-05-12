@@ -20,12 +20,14 @@ def display_game_state(mistakes, secret_word, guessed_letters):
 
 
 def letter_in_secret_word(secret_word, guess):
+    """Check if the guess is in the secret word."""
     if guess in secret_word:
         return True
     return False
 
 
 def has_won(secret_word, guessed_letters):
+    """Check if the player has won the game."""
     guessed_word = ""
     for letter in secret_word:
         if letter in guessed_letters:
@@ -36,6 +38,7 @@ def has_won(secret_word, guessed_letters):
 
 
 def play_game():
+    """Main game loop."""
     secret_word = get_random_word()
     guessed_letters = []
     mistakes = 0
@@ -51,19 +54,15 @@ def play_game():
             guessed_letters.append(guess)
             if not has_won(secret_word, guessed_letters):
                 print("Well done the letter exists!")
-
         else:
             mistakes +=1
             print("Wrong!!!")
-
         if has_won(secret_word, guessed_letters):
             print("Well done, the snowman lives on!")
             break
-
         if mistakes > 3:
             print("You lost! The snowman is no more!")
             break
-
 
 
 def get_random_word():
