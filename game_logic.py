@@ -70,5 +70,15 @@ def get_random_word():
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
+def main():
+    while True:
+        play_game()
+        str_input = input("Would you like to play the game again? (y/n)")
+        if str_input != "y":
+            break
+        else:
+            print("Goodbye!")
+
+
 if __name__ == "__main__":
-    play_game()
+    main()
